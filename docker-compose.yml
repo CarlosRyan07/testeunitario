@@ -1,0 +1,13 @@
+services:
+    testeunitario:
+        stdin_open: true
+        tty: true
+        command: bash
+        build:
+            context: .
+        container_name: testeunitario
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./:/home/testeunitario
+            
