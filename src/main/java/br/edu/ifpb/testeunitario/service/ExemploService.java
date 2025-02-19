@@ -9,4 +9,20 @@ public class ExemploService {
         return x + y;
     }
 
+    public Object verificarNulo(Object objeto) {
+        return objeto;
+    }
+
+    public boolean verificarSeMaiorQue(int i, int j) {
+        if(i > j){
+            return true;
+        }
+        return false;
+    }
+
+    public void checarTimeOut() throws InterruptedException{
+        System.out.println("indor dormir por 5 segundos");
+        Thread.sleep(5000);
+        System.out.println("acordei!!!!");
+    }
 }
