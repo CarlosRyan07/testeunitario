@@ -17,6 +17,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 public class ExemploServiceTest {
     
@@ -31,15 +33,16 @@ public class ExemploServiceTest {
         Assertions.assertEquals(resultadoEsperado, resultadoReal, "2 + 4 deve ser 6");
     }
 
-    @Test void testVerificarSeObjetoNulo(){
-
+    @Test 
+    void testVerificarSeObjetoNulo(){
         ExemploService exemploService = new ExemploService();
         assertNull(exemploService.verificarNulo(null));  
         assertNotNull(exemploService.verificarNulo("string")); 
     }
     
-    @Test void testVerificarSeValorMaiorQue(){
-
+    @Test
+    @EnabledOnOs({OS.MAC, OS.LINUX})
+    void testVerificarSeValorMaiorQue(){
         ExemploService exemploService = new ExemploService();
         assertTrue(exemploService.verificarSeMaiorQue(10,5));
         assertFalse(exemploService.verificarSeMaiorQue(5,50));
@@ -75,7 +78,6 @@ public class ExemploServiceTest {
             "o método deve executar em 5 segundos no máximo"
         );    
     }
-
 
 }
 
